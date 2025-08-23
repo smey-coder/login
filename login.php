@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_result($id, $hashed_password);
         $stmt->fetch();
         if (password_verify($password, $hashed_password)) {
-            $_SESSION["user_id"] = $id;
+            $_SESSION["password"] = $password;
             $_SESSION["username"] = $username;
             header("Location: welcome.php");
             exit;
